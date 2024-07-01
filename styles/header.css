@@ -1,0 +1,202 @@
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    padding-right: 1em;
+}
+
+.rotulo-menu {
+    /* Por alguma razão este elemento estava ficando com 3px a mais */
+    height: 80px;
+}
+
+.cabecalho__menu-hamburguer {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url('../img/Menu.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1em 1.5em;
+}
+
+.container__imagem {
+    padding-left: 0.5em;
+    max-height: 80px;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.container__botao {
+    display: none;
+}
+
+.lista-menu {
+    position: absolute;
+    top: 100%;
+    background-color: var(--branco);
+    padding: 0.5em 0 0 1.5em;
+    width: 15em;
+    display: none;
+    box-shadow:  1px 6px 15px grey;
+    z-index: 9;
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em 0;
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__item {
+    text-transform: uppercase;
+    background: var(--azul-gradiente);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lista-menu__link {
+    text-decoration: none;
+}
+
+#menu:checked ~ .lista-menu {
+    display: block;
+}
+
+#menu:checked + .rotulo-menu > .cabecalho__menu-hamburguer {
+    background-image: url('../img/Menu\ Aberto.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+}
+
+#menu:checked + .rotulo-menu {
+    background: var(--azul-gradiente);
+}
+
+.cabecalho__menu-expandido {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .cabecalho {
+        padding: 0 3em;
+    }
+
+    .rotulo-menu {
+        display: none;
+    }
+
+    .container__titulo {
+        display: flex;
+        padding: 0.5em 0 0 0.5em;
+        font-family: "josefin sans";
+        font-size: 30px;
+        font-weight: 400;
+        color: var(--preto);
+    }
+
+    .titulo__destaque {
+        font-weight: 700;
+    }
+
+    .container__imagem {
+        padding: 1em 0 1em 2em;
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-expandido {
+        display: flex;
+    }
+
+    .menu-expandido__item {
+        color: var(--preto);
+        text-transform: uppercase;
+        padding: 1.5em;
+    }
+
+    .menu-expandido__link {
+        color: var(--preto);
+        text-decoration: none;
+    }
+
+    .lista-expandido {
+        position: absolute;
+        top: 85%;
+        background-color: var(--branco);
+        width: 12em;
+        display: none;
+        box-shadow:  1px 6px 15px grey;
+        z-index: 9;
+    }
+
+    .lista-expandido__item {
+        padding: 1em;
+        text-transform: uppercase;
+        background: var(--azul-gradiente);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .lista-expandido__link {
+        text-decoration: none;
+    }
+    
+    #menu-expandido:checked ~ .lista-expandido {
+        display: block;
+    }
+    
+    #menu-expandido:checked + .rotulo-menu-expandido > .menu-expandido__item {
+        background: var(--azul-gradiente);
+        color: var(--branco);
+    }
+
+    .lista-expandido__item:hover {
+        background: var(--azul-gradiente);
+    }
+
+    .lista-expandido__item:hover > .lista-expandido__link {
+        -webkit-text-fill-color: var(--branco);
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .cabecalho__menu-expandido {
+        margin-left: 3em;
+        margin-right: auto;
+    }
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .container__texto {
+        display: block;
+        color: var(--preto);
+        font-size: 20px;
+    }
+}
